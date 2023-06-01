@@ -68,9 +68,9 @@ public class SillyTest {
         Silly b = new Silly("Silly #1");
         Silly c = new Silly("my name");
 
-        assertTrue(a.equals(b));
-        assertTrue(b.equals(a));
-        assertFalse(c.equals(a));
+        assertEquals(a, b);
+        assertEquals(b, a);
+        assertNotEquals(c, a);
     }
 
     @Test(timeout = 50)
@@ -80,7 +80,7 @@ public class SillyTest {
         Silly shorter = new Silly("short");
         Silly longer = new Silly("very very very long");
 
-        assertTrue(base.compareTo(equal) == 0);
+        assertEquals(0, base.compareTo(equal));
         assertTrue(base.compareTo(shorter) > 0);
         assertTrue(base.compareTo(longer) < 0);
     }
